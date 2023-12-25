@@ -23,7 +23,15 @@ import * as fedRampParses from "./controllers/getAndParse/index";
     ]
   },
   middlewares: [
-    "cors",
+    {
+      cors: {
+        origin: "*",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        preflightContinue: false,
+        optionsSuccessStatus: 204,
+        allowedHeaders: "Content-Type,Authorization",
+      },
+    },
     "cookie-parser",
     "compression",
     "method-override",
